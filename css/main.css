@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blueviolet;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    position: absolute;
+    margin-bottom: 23rem;
+    text-align: center;;
+}
+
+.gradient-text {
+    background-image: linear-gradient(120deg, rgb(163, 218, 159), rgb(66, 109, 117), rgb(131, 226, 161));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.board {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    box-shadow: 0 0 15px 5px rgba(50, 50, 50, 0.5);
+    border-radius: 10px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: solid 1px rgb(150, 42, 100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer; 
+    background-color: white;
+}
+
+button {
+    border: none;
+    margin: 0 0 0 20px;
+    padding: 5px;
+    box-shadow: 15px black;
+    background-color: rgb(133, 196, 168);
+    cursor: pointer;
+}
+
+.turn {
+    margin: 0 20px 0 0;
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(239, 177, 177);
+}
+
+.cell.x,
+.cell.o {
+    cursor: not-allowed
+}
+
+.cell:first-child {
+    border-top-left-radius: 10px;
+}
+
+.cell:nth-child(3) {
+    border-top-right-radius: 10px;
+}
+
+.cell:nth-child(9) {
+    border-bottom-right-radius: 10px;
+}
+
+.cell:nth-child(7) {
+    border-bottom-left-radius: 10px;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:last-child {
+    border-bottom: none;
+}
