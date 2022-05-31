@@ -57,3 +57,4 @@ function resetGame(evt) {
     turnEl.innerText= "O's  Turn";
     turnEl.style.color = 'rgb(239, 177, 177)'
 }
+

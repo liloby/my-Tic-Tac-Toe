@@ -15,11 +15,12 @@ body {
 h1 {
     position: absolute;
     margin-bottom: 23rem;
+    margin-left: 1.5rem;
     text-align: center;;
 }
 
 .gradient-text {
-    background-image: linear-gradient(120deg, rgb(163, 218, 159), rgb(66, 109, 117), rgb(131, 226, 161));
+    background-image: linear-gradient(180deg, rgb(241, 246, 240), rgba(63, 226, 82, 0.8), rgba(206, 147, 188, 0.5));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -50,19 +51,27 @@ h1 {
 }
 
 button {
-    border: none;
+    font-size: 10px;
     margin: 0 0 0 20px;
     padding: 5px;
-    box-shadow: 15px black;
-    background-color: rgb(133, 196, 168);
+    background-color: rgb(7, 247, 139);
     cursor: pointer;
+    border-radius: 5px;;
+    transition: 500ms;
+}
+
+button:hover {
+    transform: scale(1.5);
 }
 
 .turn {
+    border: 3px outset rgb(239, 232, 232) ;
+    padding: .3rem;
     margin: 0 20px 0 0;
-    font-size: larger;
+    font-size: 1.5rem;
     font-weight: bold;
     color: rgb(239, 177, 177);
+    transition: 500ms;
 }
 
 .cell.x,
