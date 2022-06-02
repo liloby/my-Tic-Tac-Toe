@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: blueviolet;
+    background-color: rgb(27, 165, 211);
     height: 120vh;
     display: flex;
     justify-content: center;
@@ -15,11 +15,11 @@ body {
 h1 {
     position: absolute;
     margin-bottom: 30rem;
-    text-align: center;;
+    text-align: center;
 }
 
 .gradient-text {
-    background-image: linear-gradient(180deg, rgb(241, 246, 240), rgba(63, 226, 82, 0.8), rgba(206, 147, 188, 0.5));
+    background-image: linear-gradient(160deg, rgb(255, 17, 0), rgba(7, 30, 240, 0.8), rgb(255, 0, 0));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -32,56 +32,59 @@ h1 {
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(3, auto);
-    box-shadow: 0 0 15px 5px rgba(50, 50, 50, 0.3);
+    box-shadow: 0 0 15px 5px rgba(9, 6, 99, 0.3);
     border-radius: 10px;
 }
 
 .cell {
     width: 100px;
     height: 100px;
-    border: solid 1px rgb(150, 42, 100);
+    border: solid 1px rgb(82, 28, 81);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 100px;
     font-family: 'Varela Round', sans-serif;
     cursor: pointer; 
-    background-color: white;
+    background-color: white
 }
 
 button {
     position: absolute;
-    margin-left: -11.45rem;
+    margin-left: -11.18rem;
     margin-top: 11rem;
     border: none;
     font-size: 10px;
     padding: 5px;
-    background-color: rgb(7, 247, 139);
+    background-image: linear-gradient(160deg, rgb(255, 17, 0), rgb(7, 30, 240), rgb(255, 0, 0));
     cursor: pointer;
     border-radius: 5px;;
     transition: 500ms;
+    color: black
 }
 
 button:hover {
     transform: scale(1.5);
+    color: white;
+    background-image: linear-gradient(160deg, rgb(7, 30, 240), rgb(255, 0, 0), rgb(7, 30, 240));
 }
 
 .turn {
     position: absolute;
     margin-bottom: 23.5rem;
     text-align: center;;
-    border: 3px outset rgb(239, 232, 232) ;
-    padding: .3rem;
+    border: 1.2px outset rgb(118, 20, 209) ;
+    padding: .5rem;
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(239, 177, 177);
+    color: rgb(200, 28, 28);
     transition: 500ms;
-    box-shadow: 0 0 15px 5px rgba(50, 50, 50, 0.2);
+    box-shadow: 0 0 15px 5px rgba(22, 8, 79, 0.3);
 }
 
 .cell.x,
 .cell.o {
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .cell:first-child {
