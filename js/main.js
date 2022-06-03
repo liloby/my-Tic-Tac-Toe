@@ -1,20 +1,4 @@
 /*----- constants -----*/
-const player = {
-  1: "red",
-  "-1": "blue",
-  null: "white",
-};
-
-const winCombos = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
 
 /*----- app's state (variables) -----*/
 let turn = 0;
@@ -30,6 +14,7 @@ const turnEl = document.getElementById("turn");
 boardEl.addEventListener("click", handleClick);
 resetEl.addEventListener("click", initGame);
 /*----- functions -----*/
+initGame()
 
 function handleClick(evt) {
   if (evt.target.innerText === "") {
@@ -38,8 +23,10 @@ function handleClick(evt) {
       evt.target.innerText = "X";
       evt.target.style.color = "blue";
       evt.target.classList.add("x");
+      // render x, blue, ...etc
       turnEl.innerText = "O's Turn";
       turnEl.style.color = "rgb(200, 28, 28)";
+      // put above in render()
     } else {
       evt.target.innerText = "O";
       evt.target.style.color = "rgb(200, 28, 28)";
@@ -47,24 +34,79 @@ function handleClick(evt) {
       turnEl.innerText = "X's Turn";
       turnEl.style.color = "blue";
     }
-    
-    // winCombos.forEach(function(combo) {
-    //   if (cellEls[combo[0]].innerHTML === cellEls[combo[1]].innerHTML && cellEls.innerHTML !== "") {
-    //     console.log("Win")
-    //   }
-    // })
-
-    if (turn === 9) {
-      turnEl.innerText = "Good Game!";
-      turnEl.style.color = 'gold'
-    }
-    return;
+    render()
   }
   return;
 }
 
+function render() {
+  if (turn === 9) {
+    turnEl.innerText = "It's a Tie!";
+    turnEl.style.color = "#e3d8aa";
+  }
+  if (
+    (cell[0].innerText === "O" &&
+      cell[1].innerText === "O" &&
+      cell[2].innerText === "O") ||
+    (cell[3].innerText === "O" &&
+      cell[4].innerText === "O" &&
+      cell[5].innerText === "O") ||
+    (cell[6].innerText === "O" &&
+      cell[7].innerText === "O" &&
+      cell[8].innerText === "O") ||
+    (cell[0].innerText === "O" &&
+      cell[3].innerText === "O" &&
+      cell[6].innerText === "O") ||
+    (cell[1].innerText === "O" &&
+      cell[4].innerText === "O" &&
+      cell[7].innerText === "O") ||
+    (cell[2].innerText === "O" &&
+      cell[5].innerText === "O" &&
+      cell[8].innerText === "O") ||
+    (cell[0].innerText === "O" &&
+      cell[4].innerText === "O" &&
+      cell[8].innerText === "O") ||
+    (cell[2].innerText === "O" &&
+      cell[4].innerText === "O" &&
+      cell[6].innerText === "O")
+  ) {
+    turnEl.innerText = "O Wins";
+    turnEl.style.color = "#ff1100";
+    boardEl.removeEventListener("click", handleClick)
+  }
+  if (
+    (cell[0].innerText === "X" &&
+      cell[1].innerText === "X" &&
+      cell[2].innerText === "X") ||
+    (cell[3].innerText === "X" &&
+      cell[4].innerText === "X" &&
+      cell[5].innerText === "X") ||
+    (cell[6].innerText === "X" &&
+      cell[7].innerText === "X" &&
+      cell[8].innerText === "X") ||
+    (cell[0].innerText === "X" &&
+      cell[3].innerText === "X" &&
+      cell[6].innerText === "X") ||
+    (cell[1].innerText === "X" &&
+      cell[4].innerText === "X" &&
+      cell[7].innerText === "X") ||
+    (cell[2].innerText === "X" &&
+      cell[5].innerText === "X" &&
+      cell[8].innerText === "X") ||
+    (cell[0].innerText === "X" &&
+      cell[4].innerText === "X" &&
+      cell[8].innerText === "X") ||
+    (cell[2].innerText === "X" &&
+      cell[4].innerText === "X" &&
+      cell[6].innerText === "X")
+  ) {
+    turnEl.innerText = "X Wins";
+    turnEl.style.color = "blue";
+    boardEl.removeEventListener("click", handleClick)
+  }
+}
 
-function initGame(evt) {
+function initGame() {
   cellEls.forEach(function (cell) {
     cell.innerText = " ";
     cell.classList.remove("o");
@@ -73,4 +115,5 @@ function initGame(evt) {
   turn = 0;
   turnEl.innerText = "O's  Turn";
   turnEl.style.color = "rgb(200, 28, 28)";
+  boardEl.addEventListener("click", handleClick);
 }
